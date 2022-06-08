@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Graphen COVID-19 Genomic Evolution</title>
+		<meta name="description" content="Graphen builds an AI COVID-19 Genomic Evolution Mointoring Platform.">
+		<meta name="author" content="graphen.ai">
+
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Favicon -->
+		<link rel="icon" href="favicon.ico">
+
+		<!-- Web Fonts -->
+		<link href='fonts/gfontsOpenSans.css' rel='stylesheet' type='text/css'>
+		<link href='fonts/gfontsRaleway.css' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap core CSS -->
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Font Awesome CSS -->
+		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+		<!-- Plugins -->
+		<link href="css/animations.css" rel="stylesheet">
+
+		<!-- Graphen core CSS file -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- Custom css -->
+		<!-- Development version: force reload -->
+		<script>var cstr='<link href="css/custom.css?dev='+Math.floor(Math.random()*100000)+'" rel="stylesheet"\>';document.write(cstr);</script>
+		<!-- <link href="css/custom.css" rel="stylesheet"> -->
+
+		<!-- Custom Scripts -->
+		<!-- <script>var cstr = '<script type="text/javascript" src="js/graphen-home.js?dev=' + Math.floor(Math.random() * 100000) + '" \>';document.write(cstr);</script> -->
+		<script type="text/javascript" src="js/graphen-home.js"></script>
+
+	</head>
+
+	<body class="no-trans">
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+		<!-- header start -->
+		<!-- ================ -->
+		<header class="header fixed clearfix navbar navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+
+						<!-- header-left start -->
+						<!-- ================ -->
+						<div class="header-left clearfix">
+
+							<!-- logo -->
+							<div class="logo smooth-scroll">
+								<a href="/"><img id="logo" src="images/graphen-logo-1.png" width="64px" height="64px" alt="Graphen"></a>
+							</div>
+
+
+							<!-- name-and-slogan -->
+							<div class="site-name-and-slogan smooth-scroll">
+								<div class="site-name"><a href="/">GRAPHEN</a></div>
+								<div class="site-slogan">Building Next-Generation AI Solutions</div>
+							</div>
+
+						</div>
+						<!-- header-left end -->
+
+					</div>
+					<div class="col-md-8">
+
+						<!-- header-right start -->
+						<!-- ================ -->
+						<div class="header-right clearfix">
+
+							<!-- main-navigation start -->
+							<!-- ================ -->
+							<div class="main-navigation animated">
+
+								<!-- navbar start -->
+								<!-- ================ -->
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+
+										<!-- Toggle get grouped for better mobile display -->
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<li><a href="/">Graphen Home</a></li>
+												<!-- <li><a href="#about">About</a></li>
+												<li><a href="#technologies">Technologies</a></li>
+												<li><a href="/products/index.html">Products</a></li>
+												<li><a href="#blog" onclick="window.location='/blog/output/index.html'">Blog</a></li>
+												<li><a href="#news" onclick="window.location='news/output/index.html'">News</a></li>
+												<li><a href="#contact">Contact</a></li>
+												<li><a href="jobs/index.html">Jobs</a></li> -->
+												<li class="active"><a href="covid.html">COVID-2019</a></li>
+											</ul>
+										</div>
+
+									</div>
+								</nav>
+								<!-- navbar end -->
+
+							</div>
+							<!-- main-navigation end -->
+
+						</div>
+						<!-- header-right end -->
+
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header end -->
+
+		<!-- banner start -->
+		<!-- ================ -->
+		<div id="home" class="banner">
+			<div class="banner-image"></div>
+			<div class="banner-caption">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
+							<h1 class="text-center">Monitoring <span>COVID-19</span></h1>
+							<p class="lead text-center">As of June 18, 2020, 22,402 different strains have been found from worldwide COVID-19 viruses. How did they evolve and propagate? Their whole genome sequences provides evidence!!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- banner end -->
+
+		<!-- section start -->
+		<!-- ><br><center><b>If you cannot see the below graph, please <a href="http://www.graphen.ai/hcovid.html">temporarily visit this page</a>.</b></center> -->
+		<b>UI instruction:</b><i> (1) You can use two fingers on your pad to zoom in or out. (2) To search a country, please type the country name, e.g., USA, in the Search Box. (3) You can click on a red node to see patient-related information and click on a green node to see virus mutation information. (4) Drag and drop a node can change its location; Drag and drop on background can move the whole graph.</i>
+		
+		<br><br><b>New (5/5/2020): You may be also interested in New Visualizations of <a href=covid/types.html>COVID-19's Eight Major Type distributions</a> in the World, Continent, Country, State, and City levels.<br>
+		<iframe style="margin:3%;padding:5px;" src="https://covid.graphen.tk:4005/COVID_by_0618/whole" height="760" width="94%"></iframe>
+		<!-- <iframe style="margin:3%;padding:5px;"src="http://0.0.0.0:4003/COVID_by_0420_Yunan_filtered/whole" height="760" width="94%"></iframe> -->
+		<div class="container"><div class="row">
+			<div class="col-md-12">
+
+		</div>
+		</div>
+		</div>
+
+		<!-- section end -->
+	<br><br>
+
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 id="about" class="title text-center"><span>Genomic Analysis</span> of COVID-19 Virus Evolution</h1>
+						<p class="lead text-center">Graphen explores the mutations of the viruses to construct the evolution tree</p>
+						<div class="space"></div>
+						<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+							
+							<p>Based on the 24,219 reported genome sequences (as on May 12, 2020) of the COVID-19 virus (SARS-CoV-2) from worldwide labs, Graphen Inc., in conjunction with Columbia University, is able to align the genome of viruses, look for the canonical form of each gene location, and identify the exact variant(s) of a virus. </p>
+
+							<p>Each virus has nearly 30k bases with each position represented by one of ATCG, the cDNA of  virus. <b>A virtual Canonical form sequence was determined independently in each position, not based on a single virus.</b> In the <b>Canonical form</b>, the genomic length of a virus is 29,816. The letter of each position of the Canonical form was independently determined by the consensus of all sequenced viruses. Genome sequences need to be first aligned. The max position number after alignment is 30,532 which includes some head/tail/empty holes. After the canonical form is available, for each virus, we can then identify its exact variation in each position by comparing to the Canonical form. So far, this Canonical form sequence stays the same since we started analyzing it on the data before March 1.</p>
+
+							<p>The majority of labs reported whole genome sequencing of the viruses. Because genomic variation happens when the virus reproduces itself, the locations of variants can be considered as evidence of how they evolve. For instance, if Virus A mutates at Position 100 from C to T, and Virus B mutates at Position 100 from C to T and at Position 356 from A to G, then we probably can infer there is a high chance that Virus B is a child of Virus A, which is a child of the Canonical form virus.</p>
+
+							<p>Graphen then uses its Ardi AI platform which mimics full function of human brain to store these mutation data and visualize them.</p>
+
+							<p>In the visualization, each node represents a set of viruses possessing exactly the same genome sequence. The line between two nodes represents the direction of evolution. The size of the node represent the number of virus belong to this virus set. The color of the node shows the different clusters defined in the following finding. Users can click on a node to see its related info. Users can zoom in and zoom out the graph and search based on the region.</p>
+
+							<p><b>Acknowledgement</b>: We appreciate GISAID for hosting the EpiCoV database and the worldwide labs who shared their sequenced virus info that made this research possible.</p>
+
+							<p>   We can make several observations from the graph based on these criteria:</p>
+							<ul class="list-unstyled">
+								<li><i class="fa fa-caret-right pr-10 text-colored"></i> Overall Observation</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored"></i> Country/Region-based Observation</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored"></i> Trends</li>
+							<!--	<li><i class="fa fa-caret-right pr-10 text-colored"></i> </li>
+								<li><i class="fa fa-caret-right pr-10 text-colored"></i> </li> -->
+							</ul>
+							
+						
+						</div>
+
+						<div class="space"></div>
+						<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+							<h1 id="about" class="title text-center">New Finding</h1>
+							<p class="lead text-center">Global Coronavirus can be divided into eight categories. The more it spreads over time, the more the virus mutates</p>
+						</div>
+						
+						<div class="space"></div>
+						<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+							<p>The virus evolution tree has been expanding since December last year. According to the current sequence comparison of 24,219 virus strains, viruses can be roughly divided into eight categories (A1, A2, B, C, D, E, F, G, H). The root parents with 2 virus consist of Cluster A. Then these two virus further transport in their own direction, one of them mutate into Cluster E and Cluster F, another one develop to Cluster B, C and D. While Cluster C further mutate into Cluster G and Cluster H.<img src="covid/images/8clusterstructure.png"></p>
+							<p>Each cluster has their own attribute and distribution area characteristic. Cluster B mainly founded in China; Cluster C rooted in Europe and later it mutated to cluster G in Europe and Cluster H in Estern United States; Cluster D transmit across United Kingdom, Netherland and Hong Kong; Cluster E mainly distributed in Western United States; while Cluster F is quite scattered distributed across China, South Korea, Australia, Spain, etc. <img src="covid/images/8clustertable.png"></p>
+							<p>The overall visualization with 8 cluster labelled by May 12, 2020 is shown in the below figure. By May 12, there are more than 20 thousand virus sequence has been uploaded to GISAID. <img src="covid/images/8clusterfigure.png"></p>
+							<div class="space"></div>
+							<p><strong>Cluster A: The most similar virus sequence to the potential host - bat</strong></p>
+							<p>There are only 2 virus in Cluster A with 2 mutation position apart, A1 and A2. They are the L and S types mentioned in an earlier Chinese paper. A1 is more concentrated in Wuhan, A2 is distributed throughout China, including Wuhan, Jiangxi, Shandong, Zhejiang, etc. The two virus strains are separated very early, while the other viruses are their respective offspring, so these two should be the earliest of this virus mutations. </p>
+							<div class="row">
+								<div class="col-md-6">
+									<img src="covid/images/ClusterA1.png" , height="350">
+									<em>The center largest node is the virus set that compose Cluster A1, the smaller node derived from A1 consist of Cluster B.</em>
+								</div>
+								<div class="col-md-6">
+									<img src="covid/images/ClusterA2.png" , height="350">
+									<em>The center largest node is the virus set that compose Cluster A2, the smaller node derived from A2 constst of Cluster F.</em>
+								</div>
+							</div>
+							<div class="space"></div>
+							<p><strong>Cluster C: rooted in Europe</strong></p>
+							<p>On Jan 28, the first virus in Europe is collected by a patient in Munich, Germany, which mutated from the A1 virus. Since then, it start to pandemic across different region in Europe, including the pandemic happend in North Italy on Feb, 20 and Milan.</p>
+							<p><strong>Cluster G: Pandemic in Europe and transport to South America</strong></p>
+							<p>This cluster including one of the largest virus set that mainly composed by the virus from Europe different regions, including Portugal, Switzerland, Russia, Ireland, Italy, Belgium, United Kingdom, Netherlands. Later, it even transmit into Brazil and become the source of pandemic in sourth America.</p>
+							<p><strong>Cluster H: From France to Easter United States</strong></p>
+							<p>H virus is currently the main infectious virus strain on the east coast of the United States. It can be seen from the evolutionary tree that this mutant strain is from France. It is characterized by S protein and ORF3 protein mutations. The function of ORF3 is to pierce the host cell membrane and allow the replicated virus to spread. Ching-Yung Lin was also surprised by this result, because it has not yet been seen elsewhere. The phenomenon of "high purity" virus like New York, the H virus alone accounts for 85%, and the mutation may have made the H virus spread faster more aggressively than other types.</p>
+							<div class="row">
+								<div class="col-md-4">
+									<img src="covid/images/ClusterC.png" , height="350">
+									<em>Cluster C</em>
+								</div>
+								<div class="col-md-4">
+									<img src="covid/images/ClusterG.png" , height="350">
+									<em>Cluster G</em>
+								</div>
+								<div class="col-md-4">
+									<img src="covid/images/ClusterH.png" , height="350">
+									<em>Cluster H</em>
+								</div>
+							</div>
+							
+							<div class="space"></div>
+							<p><strong>Cluster E: Pandemic in Western United States and Canada</strong></p>
+							<p>On Jan 19, the first case has been confirmed in Washington, USA. It is from a 35-year-old male who travelled from Wuhan. Later, it appeared in California at the end of Jan. Then it didn't break out until Feb 20. The below figure shows cluster E.</p>
+							<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-1">
+								<img src="covid/images/ClusterE.png" , height="350">
+							</div>
+						</div>
+						
+						<!--
+						<div class="space"></div>
+
+						<h2>Observations from the Evolution Tree</h2>
+						<div class="row">
+							<div class="col-md-6">
+
+								</div>
+							<div class="col-md-6">
+								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="headingOne">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													Overall Observation
+												</a>
+											</h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+											<div class="panel-body">
+
+											</div>
+											<img src="images/brain-trees.jpg" alt="">
+										</div>
+									</div>
+
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="headingTwo">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													Region-based Observations
+												</a>
+											</h4>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+											<div class="panel-body">
+
+											</div>
+											<img src="images/market-trader.jpg" alt="">
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="headingThree">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+													Trends
+												</a>
+											</h4>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+											<div class="panel-body">
+
+											</div>
+											<img src="images/brain-robot.jpg" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="section">
+			<div class="container">
+				<h1 class="text-center title" id="solutions">Observations</h1>
+				<div class="separator"></div>
+				<p class="lead text-center">Overall observations and Daily observations from the evolution tree (Under Construction)</p>
+				<br>
+				<div class="row object-non-visible" data-animation-effect="fadeIn">
+					<div class="col-md-12">
+
+						<!-- isotope filters start -->
+						<div class="filters text-center">
+							<ul class="nav nav-pills">
+								<li class="active"><a href="#" data-filter="*">All</a></li>
+								<li><a href="#" data-filter=".overall">Overall Observation</a></li>
+								<li><a href="#" data-filter=".usa">Region -- USA</a></li>
+								<li><a href="#" data-filter=".europe">Region -- Europe</a></li>
+								<li><a href="#" data-filter=".asia">Region -- Asia</a></li>
+								<li><a href="#" data-filter=".china">Region -- China</a></li>
+								<li><a href="#" data-filter=".daily">Daily Observations</a></li>
+							</ul>
+						</div>
+						<!-- isotope filters end -->
+
+						<!-- portfolio items start -->
+						<div class="isotope-container row grid-space-20">
+							<div class="col-sm-6 col-md-3 isotope-item overall">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="covid/images/overall.png">
+										<a class="overlay" data-toggle="modal" data-target="#overall">
+											<em class="fa fa-search-plus"></em>
+											<span>Overall</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#overall">Overall</a>
+								</div>
+								<div id="overall-modal"></div>
+								<script>showModal("overall-modal","overall","Overall","Observation",'<p>By analyzing this evolution tree graph, we can clearly see how each virus mutated and its likely genetic ancestors. We can also see clear clusters and clear community infection propagations.</p>'+'<p>Analyzing this evolution graph can help identify the source of virus as well as how widely a virus has evolved in its genetic terms and geographically terms.</p>'+'<p>Supposedly, such analyses can help government to quickly identify the source of variation and the likelihood how they will be propagated.</p>'+'<p>By understanding the mutation of each virus and locating where those variants are in its near 30,000 genetic locations, Graphen can identify virus\' evolution chain, as well as clusters. Such mutation and propagation patterns can help companies better identify targets for drug development, public health prediction on the rate of spreading, or even predict the harmfulness of specific variants that may cause symptoms beyond those observed from the original strain.</p>',"covid/images/overall.png");</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item usa">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="covid/images/usa.png" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#usa">
+											<i class="fa fa-search-plus"></i>
+											<span>USA</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#usa">USA</a>
+								</div>
+								<div id="usa-modal"></div>
+								<script>showModal("usa-modal","usa","USA","Observation",'<p>The US\'s cases can be mainly divided into three types.<p>'+'<p>The first type is the cases scattering around the clusters. These types of patients were probably infected while traveling. Most states except Washington, California, and New York, are in this type.</p>'+'<p>The second type of patients are close to the canonical form. Many of them were on the Diamond Princess cruise.</p>'+'<p>The third type of patients, e.g., the patients in Washington state, show strong evidence of community infection. A story about this type of patient was explained in the main webpage</p>'+'<p>So far, we do not see the data from New York state yet. If we receive the data, we shall then be able to link to its source of variation / propagation. And, then we will add those data into this graph to analyze how it is propagated and mutated in the tri-state area.</p>'+'<p>More detail analysis will be added.</p>',"covid/images/usa.png");</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item europe">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="covid/images/europe.png" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#europe">
+											<i class="fa fa-search-plus"></i>
+											<span>Europe</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#Europe">Europe</a>
+								</div>
+								<div id="europe-modal"></div>
+								<script>showModal("europe-modal","europe","Europe","Observation",'<p>Propagation of COVID-19 virus in Europe can be classified into three major threads and several smaller threads.</p>'+'<p>The first thread that propagates widely in Europe is a virus of Italy_CDG1/Netherlands_Blaircum_1364780/Wales_PHW1. It then had several generations of mutations and propaged to Switzerland (which propaged to many countries including Germany, Mexico, Finland, Brazil, Nigeria, etc); and its another branch propaged to Finland, Luxenburg, Taiwan, etc. That virus itself was a mutation of Germany_BavPat1 (2020-01-28) or Brazil_SPBR01 (2020-02-25, which is less likely). Germany_BavPat1 was probably directly mutated from the canonical form virus.</p>'+'<p>A cluster of 10 viruses from the Netherlands were distinctly mutated from the canonical form. It does not share any mutation with other clusters.</p>'+'<p>Another main path was derived from a virus of Sydney_3 (2020-01-25), which was then propagated to individual clusters of Singapore, England, France, and Italy, and single cases in Australia, Hong Kong, Taiwan, Sweden, Wuhan, South Korea, and the USA.</p>'+'<p>More analysis based on each country will be added in the next few days</p>',"covid/images/europe.png");</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item asia">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="covid/images/asia.png" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#asia">
+											<i class="fa fa-search-plus"></i>
+											<span>Asia</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#asia">Asia</a>
+								</div>
+								<div id="asia-modal"></div>
+								<script>showModal("asia-modal","asia","Asia","Observation",'<p>As of March 10, 2020, there are 1 sequenced virus in Cambodia, 28 sequenced viruses from Hong Kong, 2 from India, 6 from Iran, 11 from Japan, 13 from South Korea, 1 from Nepal, 7 from Taiwan, 1 from Vietnam, 11 from Singapore, 4 from Phillipines, 2 from Thailand, and 3 from Malaysia. </p>'+'<p><b>South Korea</b>, one of the worst impacted countries, has its cases mainly in two branches. One is mixed with other Asian countries, which was derived from a case in Sydney. The other ones are in a close cluster with viruses in Beijing.</p>'+'<p><b>Japan</b>\'s 11 cases can be observed in 5 places in the graph. 3 are either the canonical form or its one-step variant. 3 of them are derived from a popular virus in Asia which was originated in Chongqing and Singapore. The only ones that show clustering are Japan_TY-WK501, 012 and 521. These three might show some sort of community infection. Overall, most of Japan\'s cases are at the end of the evolutionary chain. That may indicate that the infected patients are not propagating to others.</p>'+'<p><b>Taiwan</b>\'s 7 cases include 2 cases (Taiwan4 and CGU1) of the canonical form, 1 case of minor variation (NTU02), 1 case in the European branch (NTU03, with a special story on Daily - March 9), and 2 cases (NTU01 and Taiwan3) are the same of viruses in Wuhan, and 1 in an \'Asia-Pacific\' cluster that spread across 13 countries. Taiwan shows no evidence of follow-up variants that show the likelihood of strong patient quarantine without genomic evidence of internal community infection propagation.</p>'+'<p><b>Iran</b>\'s 6 cases concentrate in one cluster. That cluster was directly derived from the canonical form. However, because Iran\'s viruses only report a small portion of the entire genomic sequence. It\'s not clear how to meaningfully interpret yet. More data will be needed for this country currently suffering an outbreak.<\p>'+'<p><b>Singapore</b>\'s cases are similar to Japan\'s. They are in different clusters, except five (Singapore 5, 7, 8, 9, 10) of them are in a single cluster which includes Korea, Sweden, Hong Kong, Italy, England, Guangdong, Wuhan, etc), and its branch virus of (Singapore 5, 9 & 10). Note that this multi-nation cluster was also the source of 5 cases of France.</p>'+'<p><b>Most of Hong Kong</b>\'s data only has small segments that show no difference from the canonical form. It has three cases far away from the canonical form. Those three cases may represent they were infected while they travel in Europe or other places.</p>'+'<p><b>Cambodia</b>\'s case is only one variant away from the canonical form.<\p>'+'<p><b>Nepal</b>\'s case is also not far away from the canonical form and has no further variants.<\p>'+'<p><b>India</b>\'s two cases are quite far away. One seems to be derived from a virus in South China. The other one was probably derived from Wuhan.<p>'+'<p><b>Thailand</b> (Nonthaburi) are the original form of virus. <b>Phillipines</b> and <b>Malaysia</b>\'s sequencing are all too short to call. <b>Vietnam</b>\'s case is in the cluster heavily derived from Wuhan.</p>',"covid/images/asia.png");</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item china">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="covid/images/china.png" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#china">
+											<i class="fa fa-search-plus"></i>
+											<span>China</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#china">China</a>
+								</div>
+								<div id="china-modal"></div>
+								<script>showModal("china-modal","china","China","Observation",'<p>China contributed about 30%-40% of the cases in this database. The majority of Mainland China\'s cases are in the canonical form or its close variants. Detailed analysis will need significant effort. We will report its analysis at a later date.</p>',"covid/images/china.png");</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item daily">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/portfolio-6.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#daily-0309">
+											<i class="fa fa-search-plus"></i>
+											<span>Daily -- March 9 ~ 11</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#daily-0309">Daily -- March 9 ~ 11</a>
+								</div>
+								<div id="daily-0309-modal"></div>
+								<script>showModal("daily-0309-modal","daily-0309","Daily -- March 9 ~ 11","Observation",'<strong>March 9</strong>'+'<p>The new addition to the dataset during the weekend includes 27 cases in the Netherlands, 18 cases in the US (including the first cases in Washington and California as well as the first cases aboard the cruise ships), one case each from Taiwan and Iran, and several cases from Australia and Finland.</p>'+'<p>By analyzing the 18 cruise cases, we can see 6 of them belong to the original canonical form. 6 cases with one mutation, 3 cases with two mutations, and 3 cases with three mutations. By observing the exact mutation locations, we can see most mutations are random. Cruise-7 has Cruise-6\'s variation (11732: G->A and 26699: C->T) plus one more variation (4049: C->T). We can then infer there is a high likelihood that Cruise-7 might be infected by Cruise-6 or someone posses that virus. Similarly, Cruise-4\'s 3 variations include Cruise-12\'s sole variation. Therefore, we may infer Cruise-4 probably got infected through Cruise-12 or maybe someone in between.</p>'+'<p>If we look at Netherlands\' data, we can see that many of them form a unique cluster, which is a strong evidence of community infection within the Netherlands.</p>'+'<p>The Taiwan case Taiwan-NTU03 is a case that was shown in the newspaper. In this case, the subject went to travel to Egypt. After she showed symptom, the Egyptian government assumed she was the one who spread the virus. However, the genetic evolutionary evidence showed that her virus was a variation of the one widely spread in Europe and had no relationship with the popular variations in Asia as well as known cases in Taiwan. So, that might tell a story that this subject was probably infected by someone from Europe while she was traveling.<p>'+'<strong>March 10</strong>'+'<p>Genome sequencing of 54 viruses was added on March 10.</p>'+'<p>45 were from China, collection from 2020-01-30 to 2020-02-28;</p>'+'<p>6 were from USA - California, collected on 2020-03-05;</p>'+'<p>and 3 came from Iran, collected on 2020-02-09, 03-03, and 03-05.</p>'+'<strong>March 11</strong>'+'<p>29 cases were added on March 11, including 13 cases from England, 4 cases from Scotland, 8 cases from Switzerland, and 4 cases from Brazil.</p>',"images/portfolio-6.jpg");</script>
+							</div>
+
+
+							<div class="col-sm-6 col-md-3 isotope-item daily">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/robot-trader.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#daily-0312">
+											<i class="fa fa-search-plus"></i>
+											<span>Daily -- March 12~19</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#daily-0312">Daily -- March 12 ~ 19</a>
+								</div>
+								<div id="daily-0312~0318-modal"></div>
+								<script>showModal("daily-0312~0318-modal","daily-0312","Daily -- March 12 ~ 18","Observation",'<strong>March 12</strong>'+'<p> 65 cases were added on March 12, including 48 Netherlands cases and 7 USA cases. Most of these Netherlands cases are located in the same branch which can be traced back to Germany case (406862). 9 USA cases are all from Washington state, and shared very similar mutations.</p>'+'<strong>March 13</strong>'+'<p> 90 cases were added on March 13, including 38 Netherlands cases, 11 Germany cases. These Netherlands cases were more distributed compared to March 12 cases. These 11 Germany cases form a new branch, which is rooted from Australia cases (413594, 413596). </p>'+'<strong>March 14</strong>'+'<p> 18 cases were added on March 14, including 9 USA cases, 4 Ireland cases. Two of USA cases were located in Minnesota and derived from Washington cases. 4 Ireland cases were on the same branch with March 12 Netherlands cases, their ancestor is the Germany case (406862). </p>'+'<strong>March 15</strong>'+'<p> 23 cases were added on March 15, most of them are from France. These France cases\'s ancestor is the Germany case (406862), we could see that most of the European cases were related to this special case. </p>'+'<strong>March 16</strong>'+'<p> 41 cases were added on March 16, including 23 Guangdong cases, which were seperated over the whole graph. </p>'+'<strong>March 17</strong>'+'<p> 59 cases were added on March 17, including 22 England cases. To be noticed here, case ID 415133 ~ 415134 and 415140 ~415141 and previoous casess 415123, 415126 form a pure England branch. This branch might keep growing in following days.  </p>'+'<strong>March 18</strong>'+'<p> 157 cases were added on March 18, including 76 Netherlands and 43 USA cases. Netherlands cases were most located in three main Branch, which are from China, England cases and the special Germany case (406862). Most of these USA cases are from Washington state, and most of these cases were located in the same branch where USC cases dominated. This branch originated from China case. </p>'+'<strong>March 19</strong>'+'<p> 49 cases were added on March 19, including 14 France and 11 Switzerland cases. Netherlands cases were most located in three main Branch, which are from China, England cases and the special Germany case (406862). Most of these USA cases are from Washington state, and most of these cases were located in the same branch where USA cases dominated. This branch originated from China case. </p>',"images/robot-trader.jpg");</script>
+							</div>
+
+
+							<div class="col-sm-6 col-md-3 isotope-item daily">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/taiwan_branch.png" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#daily-0320">
+											<i class="fa fa-search-plus"></i>
+											<span>Daily -- March 20~Present</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#daily-0320">Daily -- March 20~Present</a>
+								</div>
+								<div id="daily-0320-modal"></div>
+								<script>showModal("daily-0320-modal","daily-0320","Daily -- March 20~Present","Observation",'<strong>March 20</strong>'+'<p> 24 cases were added on March 20, including 8 Brazil cases and 3 Taiwan cases. These three Taiwan cases shared very simaliar mutations and form a small branch. Accroding to the location information and their mutations, they seemed to be relative to each other. However, their ancestor virus set had a diversity of case region, which had cases from China, Singapore, Japan and USA. Therefore, it was hard to determine the infect path at this time. 8 Brazil cases do not belong to the same virus set, but most of them have the common ancestor, they could originate from Germany of Netherlands.</p>'+'<strong>March 21</strong>'+'<p> 120 cases were added on March 21, and about 100 cases are from China. Although there are many reported cases in China, there is not any branch dominated by China like Netherlands and Washington state cases. Maybe it was result from a variety of infecting sources or the spreading speed of cases from China. </p>'+'<strong>March 22</strong>'+'<p> 34 cases were added on March 22, and most of them are from USA (33 cases). Amoong these USA cases, Washington cases took the majority and joined the Washington state branch mentioned in March 18 diary. </p>',"images/taiwan_branch.png");</script>
+							</div>
+
+							
+
+						<!--	<div class="col-sm-6 col-md-3 isotope-item retail-banking">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/customer-insight.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#project-9">
+											<i class="fa fa-search-plus"></i>
+											<span>Retail Banking</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-9">Customer Insight</a>
+								</div>
+								<div id="project-9-modal"></div>
+								<script>showModal("project-9-modal", "project-9", "Customer Insight", "Description",
+										'<p>A holistic customer insight (CI) acts as an engine of long-term growth for a company by bridging their research and marketing departments. It impacts both direct and digital marketing effectiveness in terms of customer behaviors such as their underlying mindsets, moods, desires, aspirations and motivations. Such research has the potential to change customer behaviors for mutual benefits.</p>' +
+										'<p>First of all, the collected data must be audited in a database. Then the following analyses can be applied: impact assessment, customer as assets, modeling, cross-sell analysis and critical lag.</p>',
+										"images/customer-insight.jpg");
+								</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item insurance">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/portfolio-10.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#project-10">
+											<i class="fa fa-search-plus"></i>
+											<span>Insurance</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-10">Elder Robo-Assistant</a>
+								</div>
+								<div id="project-10-modal"></div>
+								<script>showModal("project-10-modal", "project-10", "Elder Robo-Assistant", "Description",
+										'<p>Aging gives humans more experience and wisdom, but also makes it harder for us to predict many unthinkables. From the insurance point-of-view, Graphen technologies can help the elderly analyze their financial needs based on their wealth situation, health condition, family condition, etc. - all based on the solutions of Robo-Advisory and Customer Insights. This shall then make better insurance recommendations that are truly customized to individual needs.</p>' +
+										'<p>Furthermore, cognitive robots can potentially provide elder care -- ranging from detecting anomalies at home to becoming a companion that the elderly can interact with. When AI robot, Adam, matures, there will be enormous potential to utilize it for elder care applications.</p>',
+										"images/portfolio-10.jpg");
+								</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item insurance">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/portfolio-11.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#project-11">
+											<i class="fa fa-search-plus"></i>
+											<span>insurance</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-11">Fraud Detection</a>
+								</div>
+								<div id="project-11-modal"></div>
+								<script>showModal("project-11-modal", "project-11", "Fraud Detection", "Description",
+										'<p>Fraud is a billion-dollar business. It co-evolves with IT. It poses significant problems for both the government and businesses including welfare, social security, retirement benefits, internet transactions, credit transactions, utilities, insurance claims, taxes and benefits.</p>' +
+										'<p>There are two types of data analysis techniques: statistics and artificial intelligence. Machine learning techniques can be used to extract both statistical and quantitative characteristics of fraud. Neural networks can learn suspicious patterns from sample data and then detect pattern-based fraud.</p>',
+										"images/portfolio-11.jpg");
+								</script>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item retail-banking">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/human-capital.jpg" alt="">
+										<a class="overlay" data-toggle="modal" data-target="#project-12">
+											<i class="fa fa-search-plus"></i>
+											<span>Retail Banking</span>
+										</a>
+									</div>
+									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-12">Human and Social Capital</a>
+								</div>
+								<div id="project-12-modal"></div>
+								<script>showModal("project-12-modal", "project-12", "Human and Social Capital", "Description",
+										'<p>Human capital is a stock of knowledge, education, experience, expertise, talent, intelligence, creativity, training, judgement and wisdom possessed by the individual. It is applied to perform labor and produce economic value, as per supply and demand relationships. It can self-generate with use. It is expandable, transportable and shareable. It is expected to produce cumulative growth. Its characteristics are mobility, intangibility and portability. From a firm-specific point of view, its key activities are knowledge, collaboration, process and absence. Human Capital Risk can be identified in HR processes. A company’s reputational risk can be mitigated via the building of a proper corporate culture.</p>' +
+										'<p>Social capital is defined in one way as the collective value of the social networks (the people you know), which is central and for the common good.</p>',
+										"images/human-capital.jpg");
+								</script>
+							</div>
+
+					-->
+
+						</div>
+						<!-- portfolio items end -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="text-center">COVID-2019 Live Channel</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+
+		<!-- footer start -->
+		<!-- ================ -->
+		<footer id="footer">
+
+			<!-- .footer start -->
+			<!-- ================ -->
+			<div class="footer section">
+				<div class="container">
+					<h1 class="title text-center" id="contact">Contact Us</h1>
+					<div class="space"></div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="footer-content">
+								<p class="large">Our global headquarters is located in the heart of Midtown Financial District in New York City, minutes away from Bryant Park, Grand Central Station and New York Public Library. We also have branches in Taipei, Hong Kong, Singapore and Beijing.</p>
+								<ul class="list-icons">
+									<li><i class="fa fa-map-marker pr-10"></i> <a href=https://www.google.com/maps/place/Graphen/@40.7538297,-73.9830476,17z/data=!3m1!4b1!4m5!3m4!1s0x89c259003bd11ed9:0xfceaeca599a0d752!8m2!3d40.7538297!4d-73.9808589>500 5th Ave., Suite 2420, New York, NY 10110</a></li>
+									<li><i class="fa fa-phone pr-10"></i> +1 (212) 221 - 0090</li>
+								<!--	<li><i class="fa fa-fax pr-10"></i> +00 1234567891 </li> -->
+									<li><i class="fa fa-envelope-o pr-10"></i> info@graphen.ai</li>
+								</ul>
+								<ul class="social-links">
+									<li class="facebook"><a target="_blank" href="https://www.facebook.com/GraphenAI"><i class="fa fa-facebook"></i></a></li>
+									<li class="twitter"><a target="_blank" href="https://twitter.com/GraphenAI"><i class="fa fa-twitter"></i></a></li>
+								<!--	<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li> -->
+								<!--	<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li> -->
+									<li class="linkedin"><a target="_blank" href="http://www.linkedin.com/company/graphenai"><i class="fa fa-linkedin"></i></a></li>
+									<li class="youtube"><a target="_blank" href="https://www.youtube.com/channel/UCLqhfJL6p8jBS7YAO1dl9Cw"><i class="fa fa-youtube"></i></a></li>
+								<!--	<li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li> -->
+								<!--	<li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li> -->
+								</ul>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<img src="images/officebuilding.jpg" alt="">
+							<!--
+							<div class="footer-content">
+								<form role="form" id="footer-form">
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="name2">Name</label>
+										<input type="text" class="form-control" id="name2" placeholder="Name" name="name2" required>
+										<i class="fa fa-user form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="email2">Email address</label>
+										<input type="email" class="form-control" id="email2" placeholder="Enter email" name="email2" required>
+										<i class="fa fa-envelope form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="message2">Message</label>
+										<textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
+										<i class="fa fa-pencil form-control-feedback"></i>
+									</div>
+									<input type="submit" value="Send" class="btn btn-default">
+								</form>
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .footer end -->
+
+			<!-- .subfooter start -->
+			<!-- ================ -->
+			<div class="subfooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center">Copyright © 2020 Graphen, Inc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .subfooter end -->
+
+		</footer>
+		<!-- footer end -->
+
+		<!-- JavaScript files placed at the end of the document so the pages load faster
+		================================================== -->
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Modernizr javascript -->
+		<script type="text/javascript" src="plugins/modernizr.js"></script>
+
+		<!-- Isotope javascript -->
+		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+
+		<!-- Backstretch javascript -->
+		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+
+		<!-- Appear javascript -->
+		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+
+		<!-- Initialization of Plugins -->
+		<script type="text/javascript" src="js/template.js"></script>
+
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="js/custom.js"></script>
+
+	</body>
+<script>$(document).ready(function(){$(function(){var hash=window.location.hash;hash&&$('ul.nav a[href="'+hash+'"]').tab('show');$('.navbar-right a').click(function(e){$(this).tab('show');var scrollmem=$('body').scrollTop()||$('html').scrollTop();window.location.hash=this.hash;$('html,body').scrollTop(scrollmem);});});});</script>
+</html>

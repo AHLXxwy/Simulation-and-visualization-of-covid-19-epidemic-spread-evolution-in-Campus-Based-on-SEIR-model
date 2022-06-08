@@ -1,0 +1,495 @@
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.topFramework {
+    /* margin-top:5px;
+    margin-left: 5px; */
+    float: left;
+}
+
+#left {
+    height: 100%;
+    width: 25%;
+}
+
+#right {
+    height: 100%;
+    width: 75%;
+}
+
+.framework {
+    /* margin-top:5px;
+    margin-left: 5px; */
+    float: left;
+}
+
+.frameworkTitle {
+    height: 17px;
+    width: 100%;
+    background: -webkit-linear-gradient(bottom, #6495ED, #103161, #1E90FF);
+    /* background-color:#4682B4; */
+    border: solid;
+    border-width: 0.5px;
+    /* border-color: #78b7d4; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size:small;
+    color: #FFE4E1;
+    opacity: 0.5;
+}
+
+.frameworkBody {
+    height: calc(100% - 17px);
+
+    width: 100%;
+    /* color:#fff; */
+    /* background:-webkit-linear-gradient(top,white,#F0F8FF,lightblue); */
+    /* background:  linear-gradient(to left,white,5%,#87CEFA,70%,#87CEEB); */
+    background-color: black;
+    border: solid;
+    border-width: 0.1px;
+    border-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    opacity: 0.8;
+    
+
+}
+
+#overview {
+    height: 20%;
+    width: 100%;
+}
+
+#control {
+    height: 40%;
+    width: 100%;
+}
+
+#lineview {
+    height: 40%;
+    width: 100%;
+}
+
+#scatter {
+    height: 60%;
+    width: 50%;
+
+}
+
+#treemap {
+    height: 60%;
+    width: 50%;
+}
+
+#statistics {
+    height: 40%;
+    width: 50%;
+}
+
+#matrix {
+    height: 40%;
+    width: 50%;
+
+}
+
+/* #contact{
+    height:calc(99%-16px);
+    width:100%;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: black;
+    opacity:0.8;
+} */
+/* #tree{
+    height:calc(99%-16px);
+    width:100%;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: black;
+    opacity:0.8;
+} */
+
+.outer {
+    height: 100%;
+    padding: 100px 0 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #FFF;
+    shape-rendering: crispEdges;
+}
+
+#B {
+    height: 100%;
+    width: 100%;
+    background: #000000;
+    /* bottom:200px; */
+}
+
+#word {
+    color: #fff;
+    font-size: large;
+    left: 25px;
+    top: 22px;
+    position: absolute;
+}
+
+/* #slider {
+    width: 60%;
+    left:80px;
+    top: 30px;
+   
+    background-color: #000000;
+    position: absolute;
+} */
+
+.state {
+    fill: none;
+    stroke: #a9a9a9;
+    stroke-width: 1;
+}
+
+.state:hover {
+    fill-opacity: 0.5;
+}
+
+#tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+#tooltip h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+#tooltip {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 12px;
+    width: auto;
+    padding: 4px;
+    color: white;
+    opacity: 0;
+}
+
+#tooltip table {
+    table-layout: fixed;
+}
+
+#tooltip tr td {
+    padding: 0;
+    margin: 0;
+}
+
+#tooltip tr td:nth-child(1) {
+    width: 50px;
+}
+
+#tooltip tr td:nth-child(2) {
+    text-align: center;
+}
+
+/* #indicator {
+	position: absolute; 
+	left: 20px;
+	top: 100px;
+    text-align: left;
+    color: #f2f2f2;
+    font-size: 10px;
+    
+}
+
+#indicator>div {
+    margin-bottom: 4px;
+}
+
+#indicator span {
+    display: inline-block;
+    width: 25px;
+    height: 10px;
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+}
+
+.links line {
+    stroke: rgb(240, 240, 240); 
+    stroke-width:5px;
+	stroke-opacity: 1;
+} */
+
+/* .links line.inactive {
+    stroke-opacity: 0;
+}
+
+.nodes circle {
+	stroke: #fff;
+	stroke-width:0.5px;
+}
+
+.nodes circle:hover {
+    cursor: pointer;
+}
+
+.nodes circle.inactive {
+	display: none !important;
+}
+
+.texts text {
+    display: none;
+    font-size: 10px;
+}
+
+.texts text:hover {
+    cursor: pointer;
+     font-size: 10px;
+}
+
+.texts text.inactive {
+    display: none !important;
+}
+
+#mode {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#mode span {
+    display: inline-block;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    transition: color, background-color .3s;
+    -o-transition: color, background-color .3s;
+    -ms-transition: color, background-color .3s;
+    -moz-transition: color, background-color .3s;
+    -webkit-transition: color, background-color .3s;
+}
+
+#mode span.active, #mode span:hover {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+
+#search input {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100px;
+    height:25px;
+    background-color: #666;
+}
+
+.gridline {
+
+    stroke: white;
+
+  } */
+#slider {
+    position: absolute;
+    left: 50px;
+    top: 58px;
+    width: 120px;
+    height: 8px;
+}
+
+#force {
+    position: absolute;
+    left: 70px;
+    top: 87px;
+    width: 120px;
+    height: 8px;
+}
+
+#timevalue {
+    position: absolute;
+    left: 170x;
+    top: 85px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+
+}
+
+#S {
+    width: 10px;
+    height: 10px;
+    background-color: #32ffff;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+    left: 125px;
+    top: 30px;
+
+}
+
+#svalue {
+    position: absolute;
+    left: 140px;
+    top: 28px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+#E {
+    width: 10px;
+    height: 10px;
+    background-color: #ffff32;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+    left: 160px;
+    top: 30px;
+}
+
+#evalue {
+    position: absolute;
+    left: 175px;
+    top: 28px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+#I {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+    left: 195px;
+    top: 30px;
+
+}
+
+#ivalue {
+    position: absolute;
+    left: 210px;
+    top: 28px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+
+/*chrome--------------------------------------------start*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(201, 201, 202);
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(162, 162, 163);
+}
+
+.el-menu::-webkit-scrollbar,
+.el-table__body-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.el-menu:hover::-webkit-scrollbar,
+.el-table__body-wrapper:hover::-webkit-scrollbar {
+    display: block;
+}
+
+/*chrome--------------------------------------------end*/
+rect.bordered {
+    stroke: #E6E6E6;
+    stroke-width: 2px;
+}
+
+text.mono {
+    font-size: 9pt;
+    font-family: Consolas, courier;
+    fill: #aaa;
+}
+
+text.axis-workweek {
+    fill: #000;
+}
+
+.legend .bar {
+    height: 10px;
+    width:63%;
+    position: relative;
+    bottom:17px;
+    left:85px;
+    background: linear-gradient(to right,#FFFFDD, #3E9583, #1F2D86);
+}
+#riskvalue{
+    position: relative;
+    top:5px;
+    font-size: 12px;
+    color: white;
+}
+#leftlabel{
+    position: relative;
+    bottom:30px;
+    left:60px;
+    font-size: 12px;
+    color: white;
+}
+#rightlabel{
+    position: relative;
+    bottom:30px;
+    left:280px;
+    font-size: 12px;
+    color: white;
+}

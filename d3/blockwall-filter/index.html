@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js"></script>
+    <script src="hilbert.js"></script>
+    
+    <style>
+      body { 
+        margin:0;position:absolute;top:0;right:0;bottom:0;left:0; 
+        background-color: #111;
+        overflow:none;
+      }
+      #blocks {
+        position: absolute;
+        top: 40px;
+        left: 10px; 
+      }
+      .block {
+        position:absolute;
+        width: 9px;
+        height: 7px;
+        text-decoration: none;
+        line-height: 9px;
+      }
+      .block a {
+        text-decoration: none;
+      }
+      #user {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 200px;
+      }
+      #hover {
+        color: white;
+        font-size: 11px;
+        font-family: Courier new;
+        float:right;
+        margin: 5px;
+      }
+      
+      
+    </style>
+  </head>
+
+  <body>
+    <input id="user" placeholder="GitHub username">
+    <div id="hover"></div>
+    <div id="blocks">
+    </div>
+    <script>
+      d3.json("blocks.json", function(err, blocks) {
+        var xf = crossfilter(blocks);
+        var author = xf.dimension(function(d) { return d.userId })
+        var created = xf.dimension(function(d) { return +new Date(d.created_at) })
+        var all = xf.dimension(function(d) { return true });
+        var thumb = xf.dimension(function(d) { return !!d.thumbnail });
+        //thumb.filter(function(d) { return d })
+        //var api = xf.dimension(function(d) { return d.api });
+
+        
+        //var layout = new hilbert()
+        //  .sideLength(9)
+
+        var layout = new grid()
+          .cellWidth(9)
+          .cellHeight(7)
+          .width(938)
+          .margin([1, 1])
+          //.offset([0, 28])
+          .brick(true)
+          
+        
+        //var data = layout.nodes(created.top(1000));
+        var data = layout.nodes(created.top(Infinity));
+        //var data = created.top(Infinity);
+        console.log("grid", data.length)
+        
+        var color = d3.scale.linear()
+          .domain([0, data.length])
+          .range(["#a8ff60", "#0600cc"])
+          .interpolate(d3.interpolateHcl)
+        
+        var blockdivs = d3.select("#blocks").selectAll("div.block")
+        .data(data)
+        .enter()
+        .append("div").classed("block", true)
+        .style({
+          top: function(d) { return d.y  + "px" },
+          left: function(d) { return d.x  + "px" },
+          /*
+          "border": function(d,i) {
+            return "1px solid " + color(i);
+          },*/
+          "background-color": function(d,i) {
+            return color(i);
+          }
+        }).on("click", function(d,i) {
+          console.log(d);
+          window.open("http://bl.ocks.org/" + d.data.userId + "/" + d.data.id);
+        }).on("mouseover", function(d,i) {
+          // select
+          var desc = d.data.description || "";
+          desc = desc.slice(0, 40);
+          if(d3.select(this).style("opacity") == 1)
+            d3.select("#hover").text(desc + " by: " + d.data.userId + " " + d.data.id)
+        })
+        
+        d3.select("#user").on("keydown", function() {
+          var that = this;
+          setTimeout(function() {
+            var val = that.value.toLowerCase();
+            d3.select("#hover").text("");
+            author.filter(function(d) { 
+              return d.toLowerCase().indexOf(val) >= 0;
+						})
+            var matched = author.top(Infinity)
+            var ids = matched.map(function(d) { return d.id });
+            
+						d3.select("#blocks").selectAll("div.block")
+            .transition().duration(400)
+            .style("opacity", 0.1)
+            
+            var filtered = d3.select("#blocks").selectAll("div.block")
+            .filter(function(d) { return ids.indexOf(d.data.id) >= 0 })
+            .transition().duration(100)
+            .style("opacity", 1)
+            
+          }, 10);
+          
+        })
+
+        
+        
+      })
+    </script>
+  </body>
+  

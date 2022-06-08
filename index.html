@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <!-- <meta charset='utf-8' /> -->
+    <meta charset='utf-8' />
+    <title>Virus</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+    <script src="https://d3js.org/d3-force.v1.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/dark.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://d3plus.org/js/d3plus-text.v0.9.full.min.js"></script>
+
+    <style>
+        #slider {
+            position: relative;
+            top: 5px;
+
+        }
+
+        .link {
+            stroke: white;
+            stroke-width: 2.5px;
+        }
+
+
+
+        .tooltip {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            text-align: center;
+            font-size: 18px;
+            background-color: #ccc;
+            border: 1px red solid;
+            border-radius: 5px;
+        }
+
+        .range {
+            width: 150px;
+            height: 6px;
+            background-color: #e5e5e5;
+            border-radius: 3px;
+            float: left;
+        }
+
+        /* 滑动条 */
+        input[type='range'] {
+            margin-top: 8px;
+            outline: none;
+            -webkit-appearance: none;
+            /*清除系统默认样式*/
+            width: 50% !important;
+            background: -webkit-linear-gradient(#00c3d5, #00c3d5) no-repeat, #ddd;
+            background-size: 0% 100%;
+            /*设置左右宽度比例*/
+            height: 3px;
+            /*横条的高度*/
+        }
+
+        /*拖动块的样式*/
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /*清除系统默认样式*/
+            height: 12px;
+            /*拖动块高度*/
+            width: 12px;
+            /*拖动块宽度*/
+            background: #fff;
+            /*拖动块背景*/
+            border-radius: 50%;
+            /*外观设置为圆形*/
+            border: solid 1px #ddd;
+            /*设置边框*/
+        }
+
+        #controlAll {
+            height: 80px;
+            padding-left: 10px;
+
+        }
+
+        #parameter {
+            height: 70px;
+            padding-left: 10px;
+        }
+
+        #infectionValue,
+        #latentperiodValue {
+            float: right;
+            width: 25px;
+            height: 15px;
+            color: black;
+            font-size: 10px;
+            margin-right: 10px;
+        }
+
+        #force {
+            position: absolute;
+            right: 35px;
+            top: 290px
+        }
+
+        .legend {
+            font-family: 'Raleway', sans-serif;
+            fill: #333333;
+        }
+
+        .tooltip {
+            fill: #333333;
+        }
+
+        .annotation-note-title {
+            /* font-weight: bold; */
+            fill: black;
+        }
+
+        .annotation-note-label {
+            /* font-weight: bold; */
+            fill: grey;
+        }
+
+
+
+
+        #chart {
+            width: 100%;
+            max-width: 850px;
+        }
+
+
+
+        .main {
+            fill: #33302e;
+            font-size: 17px;
+        }
+
+        .sub {
+            fill: #66605c;
+            display: inline-block;
+            font-size: 13px;
+            opacity: 0.90;
+        }
+
+        .y-axis path,
+        .x-axis path {
+            stroke: #757575;
+            shape-rendering: crispEdges;
+            stroke-width: 1px;
+        }
+
+        .x-axis text,
+        .y-axis text {
+            font-size: 11px;
+            fill: #66605c;
+            opacity: 0.95;
+        }
+
+        .x-axis .tick line {
+            stroke: #66605c;
+            stroke-width: 0.8px;
+            opacity: 0.2;
+        }
+
+        .y-axis .tick line {
+            stroke: #66605c;
+            stroke-width: 0.8px;
+            opacity: 0.2;
+        }
+
+        .footnote text {
+            font-size: 9px;
+            opacity: 0.85;
+            fill: #66605c;
+        }
+
+        #run {
+            background-color: dimgrey;
+            /* position: relative;
+            */
+        }
+
+        .node rect {
+            cursor: pointer;
+            fill: #fff;
+            fill-opacity: 0.8;
+            stroke: #3182bd;
+            stroke-width: 1.5px;
+        }
+
+        .node text {
+            font: 10px sans-serif;
+            pointer-events: none;
+        }
+
+        .link {
+            fill: none;
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        .links line {
+            stroke: rgb(240, 240, 240);
+            stroke-width: 3px;
+            stroke-opacity: 1;
+        }
+
+        .links line.inactive {
+            display: none !important;
+            /* stroke-opacity: 0; */
+        }
+
+        .nodes circle {
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .nodes circle:hover {
+            cursor: pointer;
+        }
+
+        .nodes circle.inactive {
+            display: none !important;
+        }
+
+        rect.bordered {
+            stroke: #A1A1A1;
+            stroke-width: 1px;
+        }
+
+        .timeLabel,
+        .dayLabel {
+            font-size: 1.6rem;
+            fill: #AAAAAA;
+            font-weight: 300;
+        }
+
+        text.axis-workweek,
+        text.axis-worktime {
+            fill: #404040;
+            font-weight: 400;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            fill: #4F4F4F;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            fill: #AAAAAA;
+            font-weight: 300;
+        }
+
+        .credit {
+            font-size: 1.2rem;
+            fill: #AAAAAA;
+            font-weight: 400;
+        }
+
+        .axis path,
+        .axis tick,
+        .axis line {
+            fill: none;
+            stroke: white;
+        }
+
+        text {
+            font-size: 1.2rem;
+            fill: #AAAAAA;
+            font-weight: 400;
+        }
+
+        .legendTitle {
+            font-size: 1.6rem;
+            fill: #4F4F4F;
+            font-weight: 300;
+        }
+    </style>
+    <script>
+
+    </script>
+
+</head>
+
+<body>
+    <div id="left" class="topFramework">
+        <div id="overview" class="framework" style="color: white;font-size: 10px">
+            <div class="frameworkTitle">数据概览
+
+            </div>
+            <div class="frameworkBody"style="font-size:12px">
+                <!-- <span id="modelSum">总人数：</span> -->
+                <!-- <br> -->
+                <span id="modelS" style="background:#00FFFFFF;">易感人数：</span>
+                &nbsp;
+                <span id="modelE" style="background:#FFD700;">潜伏人数：</span>
+                &nbsp;
+                <span id="modelI" style="background:red;">感染人数：</span>
+                &nbsp;
+                <span id="modelR" style="background:#00FF00;">治愈人数：</span>
+                </br>
+                </br>
+
+
+                <!-- <div id="peosonMove">人口流动速度&nbsp;&nbsp;&nbsp;
+                    <div id="peosonMoveslider" style="width: 200px; display: inline-block;">
+                    </div> &nbsp;
+                    <div id="peosonMoveShow" style="display: inline-block;">
+                        1
+                    </div>
+                </div> -->
+                <div id="peopleLength">社交距离系数&nbsp;&nbsp;&nbsp;<div id="peopleLengthslider"
+                        style="width: 200px; display: inline-block;">
+                    </div> &nbsp;
+                    <div id="peopleLengthShow" style="display: inline-block;">
+                        0.3
+                    </div>
+                </div>
+               
+                <div id="dividedRate">隔 离 程 度&nbsp;&nbsp;&nbsp;<div id="dividedRateslider"
+                        style="width: 200px; display: inline-block;position: relative;left:15px;">
+                    </div>
+                    <div id="dividedRateShow" style="display: inline-block;position: relative;left:20px;">
+                        0%
+                    </div>
+                </div>
+               
+                <div id="incubationLength">潜 伏 期&nbsp;&nbsp;&nbsp;<div id="incubationLengthslider"
+                        style="width: 200px; display: inline-block;position: relative;left:30px;">
+                    </div>
+                    <div id="incubationLengthShow" style="display: inline-block;position: relative;left:37px;">
+                        6天
+                    </div>
+                </div>
+                <label id='riskvalue'>风险值：</label>
+                <div id='legend' class='legend'>
+                    <div class='bar'></div>
+                    <label id="leftlabel">低</label>
+                    <!-- <label id="centerlabel"></label> -->
+                    <label id="rightlabel">高</label>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">设置</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">名称:</label>
+                                <input type="text" class="form-control" id="posname">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">接触率:</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="早上"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                        id="morning">
+                                    <input type="text" class="form-control" placeholder="中午"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                        id="noon">
+                                    <input type="text" class="form-control" placeholder="下午"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                        id="afternoon">
+                                    <input type="text" class="form-control" placeholder="晚上"
+                                        aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                        id="evening">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            onclick="modalData()">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="control" class="framework" style="color: white;font-size: 10px">
+            <div class="frameworkTitle">控制面板
+
+            </div>
+            <div class="frameworkBody"style="font-size:12px">
+
+                <span>总人数：</span><input style="color:#000000;height:18px;width:100px" type='text' id="peopleNum">
+                <br>
+                <br>
+                <span id="creatNum">已创建: 0
+                </span>&nbsp;
+                <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@fat">创建</button>
+                &nbsp;
+                <button type="button" class="btn-sm btn-success" onclick="StartSEIR()"
+                    >运行</button>
+                &nbsp;
+                <button class="btn-sm btn-danger" onclick="clearPic()"
+                   >清除</button>
+                <br>
+                <span id="timescale">时间轴&nbsp;&nbsp;<div id="kslider"
+                        style="width: 180px; display: inline-block;position: relative;left:20px;"></div>
+                    <div id="timeShow" style="position: relative;bottom:20px;left:250px;">
+                        第1天0时
+                    </div>
+                </span>
+
+                <div style="width: 300px; color:#e5e5e5;overflow:scroll; overflow-x: hidden; height: 150px;">
+                    <table class="table" style="color:rgb(240, 240, 240); width: 300px">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>早上</th>
+                                <th>中午</th>
+                                <th>下午</th>
+                                <th>晚上</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+                </br>
+
+            </div>
+        </div>
+        <div id="lineview" class="framework" style="color: white;">
+            <div class="frameworkTitle">全局SEIR时变
+            </div>
+            <div id='linechart' class="frameworkBody"></div>
+        </div>
+    </div>
+
+    <div id="right" class="topFramework">
+        <div id="scatter" class="framework">
+            <div class="frameworkTitle">人员分布模拟
+
+            </div>
+            <div class="frameworkBody"style="color:white;font-size:10px">
+
+                <div id="B" class="frameworkBody"></div>
+            </div>
+        </div>
+        <div id="treemap" class="framework">
+            <div class="frameworkTitle">传染溯源分析</div>
+            <div id='tree' class="frameworkBody">
+            </div>
+        </div>
+        <div id="statistics" class="framework">
+            <div class="frameworkTitle">风险预警</div>
+            <div id="chart" class="frameworkBody"style="color:white"></div>
+        </div>
+
+        <div id="matrix" class="framework">
+            <div class="frameworkTitle">密切接触</div>
+            <div id='gridchart' class="frameworkBody"style="color:white">
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="js/move9.js"></script>
+
+
+    <!-- <script src="js/radar.js"></script> -->
+    <script src="js/net.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/buble.js"></script>
+    <script src="js/line.js"></script>
+
+
+    <script src="js/controlComponets.js"></script>
+</body>
+
+</html>

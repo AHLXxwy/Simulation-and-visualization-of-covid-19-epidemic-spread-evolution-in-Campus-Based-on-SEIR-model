@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    .title_text {
+      font: 20px sans-serif;
+    }
+    .bar {
+      fill: #7bdcc0;
+    }
+    .perc {
+      font: 14px sans-serif;
+    }
+    
+    .axis {
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis line {
+      display: none;
+    }
+
+    .x.axis .minor {
+      stroke-opacity: .5;
+    }
+
+    .x.axis path {
+     	stroke : lightgrey;
+    }
+
+    .y.axis line,
+    .y.axis path {
+      fill: none;
+      stroke: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var margin = {top: 10, right: 10, bottom: 10, left: 10},
+        w = 400,
+        h = 300;
+    var svg = d3.select("body").append("svg")
+                .attr("width", w)
+                .attr("height", h),
+        g_chart = svg.append("g").attr("transform","translate(10,100)"),
+    		g_title = svg.append("g").attr("transform","translate(10,46)");
+    
+  	var f = d3.format(".0f");
+    
+    g_title.append("text").attr("class","title_text").text("Country Audiences");
+		d3.csv("countries.csv", function(error, data) {
+    	if (error) throw error;
+      var y = d3.scaleLinear()
+          .domain([0, 1.1 * d3.max(data, function(d){ return +d.percent;})])
+          .range([h-100,0])
+          .nice();
+			console.log(data.map(function(d){ return d.country;})); 
+//       var x = d3.scaleBand()
+      var x = d3.scalePoint()
+//           .padding(0.1)
+          .domain(data.map(function(d){ return d.country;}))
+          .range([0, w - 170 - 40])
+      ;
+
+      var xAxis = d3.axisBottom()
+        .scale(x)
+      ;
+
+      var yAxis = d3.axisLeft()
+        .scale(y)
+      	.tickFormat( function(d) { return d + "%" } );
+      
+      var g_x = svg.append("g")
+      	.attr("class", "x axis")
+      	.attr("transform", "translate(45,"+ (h-40) +")")
+        .call(xAxis);
+      
+      var g_y = svg.append("g")
+      	.attr("class", "y axis")
+      	.attr("transform", "translate(30,60)")
+        .call(yAxis);
+      
+      var g_chart  = svg.append("g").attr("transform", "translate(30,60)");
+      
+      g_chart.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) { return x(d.country); })
+        .attr("y", function(d) { return y(d.percent); })
+      	.attr("width",30)
+      	.attr("height", function(d) { return h - 100 - y(d.percent); })
+      ;
+      g_chart.selectAll(".perc")
+        .data(data)
+        .enter().append("text")
+        .attr("class", "perc")
+        .attr("x", function(d) { return x(d.country); })
+        .attr("y", function(d) { return y(d.percent) - 3 ; })
+      	.text(function(d) { return f(d.percent) + "%"; })
+      ;
+    });
+  </script>
+</body>

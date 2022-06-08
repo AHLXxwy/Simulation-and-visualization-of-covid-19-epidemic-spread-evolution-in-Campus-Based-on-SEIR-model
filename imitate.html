@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script>
+        
+        $(function() {
+            // var select = $( "#minbeds" );
+            var slider = $( "#slider" ).slider({
+                min: 0,
+                max: 150,
+                range: "min",
+                // value: select[ 0 ].selectedIndex + 1,
+                slide: function( event, ui ) {
+                    // select[ 0 ].selectedIndex = ui.value - 1;
+                    console.log(ui.value - 1)
+                    // change(ui.value + 1951);
+                    start(ui.value);
+                }
+            });
+           
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="A">
+            <span>Covid-19</span>
+            <button type="button" onclick="start()">Start</button>
+            <button type="button" onclick="Stop()">Stop</button>
+            <!-- <form id="reservation">
+                <label for="minbeds">&nbsp; year</label>
+                <select name="minbeds" id="minbeds">
+                    <option>1952</option><option>1953</option><option>1954</option><option>1955</option><option>1956</option><option>1957</option><option>1958</option><option>1959</option><option>1960</option><option>1961</option>
+                    <option>1962</option><option>1963</option><option>1964</option><option>1965</option><option>1966</option><option>1967</option><option>1968</option><option>1969</option><option>1970</option><option>1971</option>
+                    <option>1972</option><option>1973</option><option>1974</option><option>1975</option><option>1976</option><option>1977</option><option>1978</option><option>1979</option><option>1980</option><option>1981</option>
+                    <option>1982</option><option>1983</option><option>1984</option><option>1985</option><option>1986</option><option>1987</option><option>1988</option><option>1989</option><option>1990</option><option>1991</option>
+                    <option>1992</option><option>1993</option><option>1994</option><option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option><option>2000</option><option>2001</option>
+                    <option>2002</option><option>2003</option><option>2004</option><option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option>
+                    <option>2012</option><option>2013</option>
+                </select>
+            </form> -->
+            <div id='slider'></div>
+        </div>
+        <div id="B"></div>
+    </div>
+    <script src="js/scatter.js"></script>
+</body>
+
+</html>
